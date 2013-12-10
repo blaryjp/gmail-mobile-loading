@@ -2,105 +2,248 @@
  * Author: J-P Blary
  * @see https://github.com/blaryjp/gmail-mobile-loading
  */
+html, body { padding: 0; margin: 0; }
+nav {
+    width: 100%; height: 50px;
+    background: lightGrey;
+}
 #mabite {
     position: relative;
-    width: 100%; height: 4px;
-    border-radius: 2px;
-    background-color: pink;
+    width: 100%; height: 2px;
+    background-color: #4986e7;
+    overflow:hidden;
+    box-shadow: 0 2px 10px 0 #4986e7;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
 }
+#mabite.rentrer { opacity: 0; }
 
 /* @see http://cubic-bezier.com/#.55,.02,.96,.1 */
 .balls {
     position: absolute;
     top: 0; left: 0;
-    width: 4px; height: 4px;
-    border-radius: 8px;
-    background-color: #000;
-
-    -webkit-animation-name: moveMyBalls;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: cubic-bezier(.55,.02,.96,.1);
-    
-    -moz-animation-name: moveMyBalls;
-    -moz-animation-duration: 3s;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: cubic-bezier(.55,.02,.96,.1);
-
-    -ms-animation-name: moveMyBalls;
-    -ms-animation-duration: 3s;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: cubic-bezier(.55,.02,.96,.1);
-
-    -o-animation-name: moveMyBalls;
-    -o-animation-duration: 3s;
-    -o-animation-iteration-count: infinite;
-    -o-animation-timing-function: cubic-bezier(.55,.02,.96,.1);
-
-    animation-name: moveMyBalls;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(.55,.02,.96,.1);
+    width: 2px; height: 2px;
+    border-radius: 0px;
+    background : #fff;
+    box-shadow: 0 0 4px 1px #fff;
 }
 
 .ball1 {
-    -webkit-animation-delay: .5s;
-    -moz-animation-delay: .5s;
-    -ms-animation-delay: .5s;
-    -o-animation-delay: .5s;
-    animation-delay: .5s;
+    -webkit-animation: moveMyBallsInit1 .5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s .5s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit1 .5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s .5s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit1 .5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s .5s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit1 .5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s .5s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit1 .5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s .5s cubic-bezier(.55,.02,.96,.1) infinite;
 }
 .ball2 {
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    -ms-animation-delay: 1s;
-    -o-animation-delay: 1s;
-    animation-delay: 1s;
+    -webkit-animation: moveMyBallsInit2 1s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit2 1s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit2 1s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit2 1s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit2 1s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1s cubic-bezier(.55,.02,.96,.1) infinite;
 }
 .ball3 {
-    -webkit-animation-delay: 1.5s;
-    -moz-animation-delay: 1.5s;
-    -ms-animation-delay: 1.5s;
-    -o-animation-delay: 1.5s;
-    animation-delay: 1.5s;
+    -webkit-animation: moveMyBallsInit3 1.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1.5s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit3 1.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1.5s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit3 1.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1.5s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit3 1.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1.5s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit3 1.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 1.5s cubic-bezier(.55,.02,.96,.1) infinite;
 }
 .ball4 {
-    -webkit-animation-delay: 2s;
-    -moz-animation-delay: 2s;
-    -ms-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
+    -webkit-animation: moveMyBallsInit4 2s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit4 2s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit4 2s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit4 2s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit4 2s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2s cubic-bezier(.55,.02,.96,.1) infinite;
 }
 .ball5 {
-    -webkit-animation-delay: 2.5s;
-    -moz-animation-delay: 2.5s;
-    -ms-animation-delay: 2.5s;
-    -o-animation-delay: 2.5s;
-    animation-delay: 2.5s;
+    -webkit-animation: moveMyBallsInit5 2.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2.5s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit5 2.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2.5s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit5 2.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2.5s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit5 2.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2.5s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit5 2.5s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 2.5s cubic-bezier(.55,.02,.96,.1) infinite;
 }
+.ball6 {
+    -webkit-animation: moveMyBallsInit6 3s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 3s cubic-bezier(.55,.02,.96,.1) infinite;
+       -moz-animation: moveMyBallsInit6 3s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 3s cubic-bezier(.55,.02,.96,.1) infinite;
+        -ms-animation: moveMyBallsInit6 3s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 3s cubic-bezier(.55,.02,.96,.1) infinite;
+         -o-animation: moveMyBallsInit6 3s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 3s cubic-bezier(.55,.02,.96,.1) infinite;
+            animation: moveMyBallsInit6 3s cubic-bezier(.55,.02,.96,.1) 1, 
+                       moveMyBalls 3s 3s cubic-bezier(.55,.02,.96,.1) infinite;
+}
+
+/* INIT */
+
+@-webkit-keyframes moveMyBallsInit1 {
+    0%   { left: 50%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit1 {
+    0%   { left: 50%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit1 {
+    0%   { left: 50%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit1 {
+    0%   { left: 50%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit1 {
+    0%   { left: 50%; }
+    100% { left: 100%; }
+}
+@-webkit-keyframes moveMyBallsInit2 {
+    0%   { left: 40%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit2 {
+    0%   { left: 40%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit2 {
+    0%   { left: 40%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit2 {
+    0%   { left: 40%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit2 {
+    0%   { left: 40%; }
+    100% { left: 100%; }
+}
+@-webkit-keyframes moveMyBallsInit3 {
+    0%   { left: 30%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit3 {
+    0%   { left: 30%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit3 {
+    0%   { left: 30%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit3 {
+    0%   { left: 30%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit3 {
+    0%   { left: 30%; }
+    100% { left: 100%; }
+}
+@-webkit-keyframes moveMyBallsInit4 {
+    0%   { left: 20%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit4 {
+    0%   { left: 20%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit4 {
+    0%   { left: 20%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit4 {
+    0%   { left: 20%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit4 {
+    0%   { left: 20%; }
+    100% { left: 100%; }
+}
+@-webkit-keyframes moveMyBallsInit5 {
+    0%   { left: 10%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit5 {
+    0%   { left: 10%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit5 {
+    0%   { left: 10%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit5 {
+    0%   { left: 10%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit5 {
+    0%   { left: 10%; }
+    100% { left: 100%; }
+}
+@-webkit-keyframes moveMyBallsInit6 {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+}
+@-moz-keyframes moveMyBallsInit6 {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+}
+@-ms-keyframes moveMyBallsInit6 {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+}
+@-o-keyframes moveMyBallsInit6 {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+}
+@keyframes moveMyBallsInit6 {
+    0%   { left: 0%; }
+    100% { left: 100%; }
+}
+
+/* LOOP */
 
 @-webkit-keyframes moveMyBalls {
     0%   { left: 0; }
-    20%  { left: 0; }
     100% { left: 100%; }
 }
 @-moz-keyframes moveMyBalls {
     0%   { left: 0; }
-    20%  { left: 0; }
     100% { left: 100%; }
 }
 @-ms-keyframes moveMyBalls {
     0%   { left: 0; }
-    20%  { left: 0; }
     100% { left: 100%; }
 }
 @-o-keyframes moveMyBalls {
     0%   { left: 0; }
-    20%  { left: 0; }
     100% { left: 100%; }
 }
 @keyframes moveMyBalls {
     0%   { left: 0; }
-    20%  { left: 0; }
     100% { left: 100%; }
 }
